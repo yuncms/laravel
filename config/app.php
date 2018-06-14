@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'zh-CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -124,22 +124,22 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
-        Illuminate\Auth\AuthServiceProvider::class,//ÈÏÖ¤
-        Illuminate\Broadcasting\BroadcastServiceProvider::class,//¹ã²¥
-        Illuminate\Bus\BusServiceProvider::class,//×ÜÏß
-        Illuminate\Cache\CacheServiceProvider::class,//»º´æ
+        Illuminate\Auth\AuthServiceProvider::class,//è®¤è¯
+        Illuminate\Broadcasting\BroadcastServiceProvider::class,//å¹¿æ’­
+        Illuminate\Bus\BusServiceProvider::class,//æ€»çº¿
+        Illuminate\Cache\CacheServiceProvider::class,//ç¼“å­˜
         Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
         Illuminate\Cookie\CookieServiceProvider::class,//Cookie
-        Illuminate\Database\DatabaseServiceProvider::class,//Êı¾İ¿â
-        Illuminate\Encryption\EncryptionServiceProvider::class,//¼ÓÃÜ
-        Illuminate\Filesystem\FilesystemServiceProvider::class,//´æ´¢
+        Illuminate\Database\DatabaseServiceProvider::class,//æ•°æ®åº“
+        Illuminate\Encryption\EncryptionServiceProvider::class,//åŠ å¯†
+        Illuminate\Filesystem\FilesystemServiceProvider::class,//å­˜å‚¨
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
-        Illuminate\Hashing\HashServiceProvider::class,//¹şÏ£
-        Illuminate\Mail\MailServiceProvider::class,//ÓÊ¼ş
-        Illuminate\Notifications\NotificationServiceProvider::class,//Í¨Öª
-        Illuminate\Pagination\PaginationServiceProvider::class,//·ÖÒ³
-        Illuminate\Pipeline\PipelineServiceProvider::class,//¹ÜµÀ
-        Illuminate\Queue\QueueServiceProvider::class,//¶ÓÁĞ
+        Illuminate\Hashing\HashServiceProvider::class,//å“ˆå¸Œ
+        Illuminate\Mail\MailServiceProvider::class,//é‚®ä»¶
+        Illuminate\Notifications\NotificationServiceProvider::class,//é€šçŸ¥
+        Illuminate\Pagination\PaginationServiceProvider::class,//åˆ†é¡µ
+        Illuminate\Pipeline\PipelineServiceProvider::class,//ç®¡é“
+        Illuminate\Queue\QueueServiceProvider::class,//é˜Ÿåˆ—
         Illuminate\Redis\RedisServiceProvider::class,//Redis
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
