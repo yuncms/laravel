@@ -40,7 +40,7 @@ return [
     'distinct'             => 'The :attribute field has a duplicate value.',
     'email'                => ':attribute 不是一个合法的邮箱。',
     'exists'               => ':attribute 不存在。',
-    'file'                 => 'The :attribute must be a file.',
+    'file'                 => ':attribute 必须是一个文件。',
     'filled'               => ':attribute 不能为空。',
     'gt'                   => [
         'numeric' => 'The :attribute must be greater than :value.',
@@ -59,8 +59,8 @@ return [
     'in_array'             => 'The :attribute field does not exist in :other.',
     'integer'              => ':attribute 必须是整数。',
     'ip'                   => ':attribute 必须是有效的 IP 地址。',
-    'ipv4'                 => 'The :attribute must be a valid IPv4 address.',
-    'ipv6'                 => 'The :attribute must be a valid IPv6 address.',
+    'ipv4'                 => ':attribute 必须是有效的 IPv4 地址。',
+    'ipv6'                 => ':attribute 必须是有效的 IPv6 地址。',
     'json'                 => ':attribute 必须是正确的 JSON 格式。',
     'lt'                   => [
         'numeric' => 'The :attribute must be less than :value.',
@@ -110,7 +110,7 @@ return [
     'string'           => ':attribute 必须是一个字符串。',
     'timezone'         => ':attribute 必须是一个合法的时区值。',
     'unique'           => ':attribute 已经存在。',
-    'uploaded'             => 'The :attribute failed to upload.',
+    'uploaded'             => ':attribute 未能上传。',
     'url'                  => ':attribute 格式不正确。',
 
     /*
