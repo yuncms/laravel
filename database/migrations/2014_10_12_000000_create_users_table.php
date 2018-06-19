@@ -15,12 +15,12 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 50)->index();//ÓÃ»§êÇ³Æ¡£
+            $table->string('name', 50)->index();//ç”¨æˆ·æ˜µç§°ã€‚
             $table->string('email', 64)->unique();
             $table->tinyInteger('identified')->default(0);
             $table->tinyInteger('disabled')->default(0);
-            $table->decimal('withdrawable_balance')->default(0.00);//¿ÉÌáÏÖÓà¶î£¬¿ÉÓÃÓÚÏû·Ñ¡¢ÌáÏÖ¡¢×ªÕËµÈ¡£
-            $table->decimal('available_balance')->default(0.00);//¿ÉÓÃÓà¶î£¬¿ÉÓÃÓÚÏû·Ñ¡£
+            $table->decimal('withdrawable_balance')->default(0.00);//å¯æçŽ°ä½™é¢ï¼Œå¯ç”¨äºŽæ¶ˆè´¹ã€æçŽ°ã€è½¬è´¦ç­‰ã€‚
+            $table->decimal('available_balance')->default(0.00);//å¯ç”¨ä½™é¢ï¼Œå¯ç”¨äºŽæ¶ˆè´¹ã€‚
             $table->string('password', 100);
             $table->string('access_token', 100)->nullable();
             $table->rememberToken();
