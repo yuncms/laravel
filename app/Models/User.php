@@ -37,7 +37,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Ó¦¸Ã±»×ª»¯ÎªÔ­ÉúÀàĞÍµÄÊôĞÔ
+     * åº”è¯¥è¢«è½¬åŒ–ä¸ºåŸç”Ÿç±»å‹çš„å±æ€§
      *
      * @var array
      */
@@ -47,7 +47,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Ó¦¸Ã±»µ÷ÕûÎªÈÕÆÚµÄÊôĞÔ
+     * åº”è¯¥è¢«è°ƒæ•´ä¸ºæ—¥æœŸçš„å±æ€§
      *
      * @var array
      */
