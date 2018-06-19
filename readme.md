@@ -68,6 +68,10 @@ Start the container
 You can then access the application through the following URL:
 
     http://127.0.0.1:8000
+
+### Cron
+
+    * * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
     
 ## License
 
