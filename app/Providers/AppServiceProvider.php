@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\User;
 use App\Observers\UserObserver;
 use Illuminate\Support\Facades\App;
+use Laravel\Passport\Passport;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //忽略 Passport 默认迁移
+        Passport::ignoreMigrations();
     }
 }
