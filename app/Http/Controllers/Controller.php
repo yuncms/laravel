@@ -6,11 +6,30 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    /**
+     * Returns whether this is an wechat request.
+     * @return bool whether this is an wechat request.
+     */
+    public function getIsWeChat()
+    {
+        return stripos(Request::userAgent(), 'MicroMessenger') !== false;
+    }
+
+    /**
+     * Returns whether this is an alipay request.
+     * @return bool whether this is an alipay request.
+     */
+    public function getIsAliPay()
+    {
+        return stripos(Request::userAgent(), 'Alipay') !== false;
+    }
 
     /**
      * 获取当前控制器名

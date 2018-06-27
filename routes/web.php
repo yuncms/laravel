@@ -10,8 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::any('ping', 'HealthController@ping'); //心跳路由
 
 Auth::routes();
+
+
 Route::get('/', function () {
     return view('welcome');
 });
