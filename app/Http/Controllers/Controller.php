@@ -9,6 +9,10 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
+/**
+ * Base Controller
+ * @package App\Http\Controllers
+ */
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;

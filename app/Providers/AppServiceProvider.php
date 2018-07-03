@@ -30,5 +30,9 @@ class AppServiceProvider extends ServiceProvider
     {
         //忽略 Passport 默认迁移
         Passport::ignoreMigrations();
+
+        if ($this->app->environment() !== 'production') {
+            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+        }
     }
 }
