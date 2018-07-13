@@ -73,6 +73,11 @@ class User extends Authenticatable
     ];
 
     /**
+     * @var bool
+     */
+    public $timestamps = true;
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -101,4 +106,14 @@ class User extends Authenticatable
         'updated_at',
         'deleted_at'
     ];
+
+    /**
+     * 自定义用Passport授权登录：用户名+密码
+     * @param $username
+     * @return mixed
+     */
+    public function findForPassport($username)
+    {
+        return self::where('name', $username)->first();
+    }
 }
