@@ -1,0 +1,16 @@
+{
+    "Documentation": "文档",
+    "Dashboard": "控制台",
+    "Login": "登录",
+    "Register": "注册",
+    "Logout": "退出",
+    "Toggle navigation": "切换导航",
+    "Username": "用户名",
+    "E-Mail Address": "邮箱",
+    "Password": "密码",
+    "Confirm Password": "确认密码",
+    "Remember Me": "记住我",
+    "Forgot Your Password?": "忘记密码？",
+    "Reset Password": "重设密码",
+    "Send Password Reset Link": "发送密码重置链接"
+}
