@@ -11,6 +11,7 @@
 |
 */
 Route::any('ping', 'HealthController@ping'); //心跳路由
+
 Route::get('/dashboard', 'DashboardController@index')->name('home');
 
 Auth::routes();

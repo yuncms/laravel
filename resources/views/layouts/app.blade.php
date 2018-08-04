@@ -1,79 +1,109 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="render" content="webkit">
+    <title>测速网 - 在线网速测试,网络测速 - SpeedTest.cn</title>
+    <meta name="Description"
+          content="测速网（SpeedTest.cn）为您提供在线免费网速测试,Ping测试，路由测试优质服务，拥有海内外，网通、联通、电信、移动、长城宽带等多个全面速度测试点，欢迎您的使用。">
+    <meta name="Keywords"
+          content="测速网,测速,网速,在线测速,SpeedTest,网速测试,免费测速,网速测试,ping 测试, traceroute, 路由测试, bandwidth,bandwidth test,speedtest html5,上网速度测试,速度测试,提高网速,网络加速,速度测试,测试网速,带宽测试,宽带测试,上网速度">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet" media="all">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/assets/ico/favicon.ico') }}"/>
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('/assets/ico/apple-touch-icon-precomposed.png') }}">
+    <link rel="shortcut icon" href="{{ asset('/assets/ico/favicon.png') }}">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->username }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+@section('header')
+    <header>
+        <div class="header-con">
+            <a href="/">
+                <!--[if lt IE 9]>
+                <img class="logo" src="/img/logo.png" alt="speedtest测速网">
+                <![endif]-->
+                <!--[if (gte IE 9)|!(IE)]><!-->
+                <svg xmlns="http://www.w3.org/2000/svg" width="400" height="67" id="logosvg">
+                    <path fill="#FF0A00"
+                          d="M61.586 34.7c.226.68.437 1.41.615 2.153h17.07s-.16-4.662-2.23-10.2L61.59 34.7z"/>
+                    <path fill="#FF8A00"
+                          d="M55.952 25.7c1.895 1.748 3.562 4 4.808 6.864l15.395-8.014c-1.78-3.917-4.58-8.028-8.967-11.072L55.952 25.716V25.7z"/>
+                    <path fill="#00D8FF"
+                          d="M45.09 20.293c2.996.647 6.217 1.83 9.082 3.933l11.024-12.01c-3.9-2.187-8.903-3.578-15.28-3.53l-4.84 11.59.015.017z"/>
+                    <path fill="#0B5CFC"
+                          d="M34.018 19.873s3.853-.647 8.742.017L47.39 8.8c-3.95.26-8.385 1.052-13.387 2.494v8.562l.015.017z"/>
+                    <path fill="#040000"
+                          d="M37.278 45.013c1.918 1.753 1.73 5.085-.424 7.443-2.153 2.355-5.454 2.847-7.374 1.097-1.918-1.755-1.73-5.084.425-7.44 2.153-2.36 5.453-2.853 7.373-1.1z"/>
+                    <ellipse transform="rotate(-47.598 33.823 48.32)" fill="#EB6416" cx="33.823" cy="48.319" rx="5.509"
+                             ry="4.484"/>
+                    <path fill="#040000"
+                          d="M33.112 49.658c1.23.437 2.168-.194 2.833-1.587l2.25-4.63c.26-.53.502-1.02.76-1.52l3.82-7.72c.47-1.13 1.636-3.32 2.283-4.59l12.19-24.64c.113-.22.518-.97.534-1.21.017-.27-.195-.4-.42-.34-.115.05-.26.18-.438.49L50.95 14.32c-.55.923-1.02 1.814-1.57 2.75-.566.94-1.052 1.847-1.585 2.785-.534.924-1.052 1.83-1.586 2.786L33.9 44.12c-.793 1.313-3.206 4.47-.793 5.52v.018z"/>
+                    <path id="ts" fill="#0031CC"
+                          d="M79.31 18.82c.18-1.795.374-3.594.568-5.357h23.39c-.193 1.797-.404 3.593-.598 5.39-3.06 0-6.07 0-9.065-.016-.178 1.504-.34 3.026-.502 4.532l-.486 4.53c-.162 1.5-.356 3.01-.518 4.51-.17 1.49-.33 2.99-.49 4.45h-5.39c.16-1.46.32-2.95.48-4.46l.48-4.52c.16-1.51.34-3.03.5-4.54l.48-4.54c-3 0-5.99 0-8.89-.018h.01zm28.394 10.88c-.048.452.098.857.453 1.23.357.373.713.55 1.118.55 4.808 0 9.6-.017 14.423-.017-.194 1.798-.373 3.612-.566 5.393h-14.438c-1.942 0-3.562-.682-4.79-2.073-1.248-1.408-1.766-3.09-1.555-5.066.16-1.522.35-3.026.51-4.548.17-1.51.32-3.03.5-4.54.21-1.98 1.08-3.66 2.64-5.07 1.53-1.41 3.31-2.11 5.24-2.11h14.16l-.59 5.42c-4.74 0-9.46-.02-14.18-.02-.5 0-.92.16-1.31.5s-.59.76-.63 1.27l-.2 1.81h15.3l-.59 5.4h-15.3c-.07.617-.13 1.216-.21 1.83zm24.395-1.83c-1.95 0-3.5-.728-4.76-2.12-1.28-1.423-1.83-3.107-1.62-5.1.21-1.957 1.11-3.64 2.7-5.065 1.55-1.393 3.25-2.138 5.21-2.138h19.84c-.18 1.845-.37 3.642-.55 5.456-6.67-.017-13.26-.017-19.86-.017-.5 0-.93.164-1.31.503-.39.34-.6.76-.65 1.26-.05.5.08.92.39 1.28.3.35.69.53 1.18.53 4.14 0 8.32 0 12.46.01 2.01 0 3.62.71 4.92 2.12 1.29 1.42 1.83 3.11 1.61 5.08-.21 1.96-1.1 3.62-2.7 5.05-1.57 1.41-3.35 2.12-5.34 2.12h-19.68c.19-1.78.39-3.6.58-5.39 6.54 0 13.08-.02 19.65-.02.5 0 .95-.18 1.36-.54.39-.34.61-.76.66-1.25.05-.5-.08-.92-.41-1.28s-.747-.54-1.25-.54h-12.48l.02.02zm21.7-8.967c.19-1.795.39-3.61.58-5.455h35.22c-.2 1.862-.39 3.675-.59 5.472-3.13 0-17.87 0-20.88-.016-.17 1.49-.31 2.98-.47 4.47-.16 1.488-.33 2.976-.47 4.467-.16 1.49-.33 2.98-.49 4.49-.16 1.49-.31 3.01-.45 4.52h-5.39c.14-1.5.3-3.02.45-4.51.16-1.5.32-2.99.47-4.48.16-1.49.31-2.98.47-4.47.16-1.49.31-2.98.47-4.47-3.01 0-5.99 0-8.95-.01l.01.02z"/>
+                    <path id="sp" fill="#000"
+                          d="M.916 61.88S-8.36 31.82 32.14 10.014v12.77S-.75 26.754 1.257 57.298h68.716s1.764.018 1.764-2.023c0-2.037-1.748-2.022-1.748-2.022h-12.6s-6.56.242-6.56-6.992c0-7.22 6.55-6.97 6.55-6.97h20.2v4.73l-19.38.02s-2.04-.03-2.04 2.04 2.04 2.04 2.04 2.04h11.1s7.12-.52 7.12 6.88-7.12 6.88-7.12 6.88H.91v.02zm83.235-8.676l-.48 4.354c-.16 1.44-.32 2.896-.48 4.322h-5.2c.42-3.757.84-7.528 1.25-11.3.42-3.772.85-7.544 1.25-11.3h17.35c1.93 0 3.5.68 4.71 2.04 1.22 1.36 1.7 3.01 1.49 4.97-.21 1.877-1.08 3.496-2.62 4.855-1.53 1.363-3.25 2.04-5.11 2.04H84.14l.015.02zm.98-8.71l-.39 3.48h12.14c.46 0 .89-.162 1.28-.52.39-.34.62-.76.67-1.245.05-.47-.08-.86-.37-1.22-.29-.34-.69-.52-1.18-.52H85.11l.017.02zM109.1 54.95c-.05.433.097.823.436 1.18.34.353.697.532 1.085.532h13.94c-.19 1.75-.39 3.48-.58 5.214h-13.94c-1.91 0-3.46-.68-4.66-2.043-1.21-1.357-1.7-2.994-1.49-4.89.16-1.455.34-2.91.51-4.37.16-1.455.32-2.91.5-4.368.21-1.896 1.07-3.53 2.59-4.89 1.52-1.36 3.2-2.04 5.11-2.04h13.7c-.19 1.747-.39 3.48-.58 5.23h-13.7c-.48 0-.92.162-1.28.485-.35.324-.56.745-.63 1.23-.06.583-.13 1.167-.21 1.75h14.8c-.19 1.746-.39 3.48-.58 5.23H109.3l-.195 1.744zm21.69 0c-.05.433.098.823.437 1.18.34.353.696.532 1.1.532h13.923c-.196 1.732-.39 3.48-.585 5.227h-13.92c-1.895 0-3.45-.68-4.663-2.04-1.213-1.36-1.7-3-1.49-4.89l.487-4.36.48-4.36c.21-1.9 1.07-3.53 2.57-4.89 1.5-1.36 3.22-2.06 5.11-2.06h13.69c-.18 1.75-.37 3.49-.57 5.23h-13.69c-.49 0-.91.16-1.28.48-.36.32-.57.74-.63 1.23l-.19 1.75h14.78c-.2 1.73-.37 3.48-.57 5.21H131l-.195 1.75-.016-.02zm15.718 6.93c.404-3.777.825-7.53 1.23-11.3.404-3.76.825-7.53 1.246-11.3h17.37c1.928 0 3.497.692 4.71 2.052 1.215 1.36 1.733 2.995 1.522 4.89l-.485 4.353-.48 4.352c-.21 1.896-1.08 3.532-2.6 4.89-1.5 1.36-3.22 2.058-5.14 2.058h-17.36zm5.778-5.23h12.157c.487 0 .923-.167 1.28-.46.37-.305.6-.727.646-1.245l.48-4.355c.16-1.454.31-2.895.47-4.35.05-.438-.1-.828-.44-1.183-.34-.357-.71-.536-1.12-.536H153.6c-.21 2.03-.438 4.05-.664 6.07-.227 2.03-.437 4.05-.664 6.07l.016-.01z"/>
+                    <path fill="#231815" stroke="#040000" stroke-width=".25"
+                          d="M201.052 13.48l27.93 48.415-.018.01-27.93-48.414z"/>
+                    <path fill="#231815" d="M228.9 61.728H400v.35H228.9z"/>
+                    <text id="slogan" transform="translate(234.75 50.72)" font-family="'Microsoft YaHei'"
+                          font-size="12">测速网-您的专属网速测试专家
+                    </text>
+                </svg>
+                <!--<![endif]-->
+            </a>
+            <div class="adv-box">
+                <a target="_blank" href="https://www.openedu.tv"><img class="advertise" src="/assets/images/advertise.png"/></a>
             </div>
-        </nav>
+        </div>
+    </header>
+@show
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+@section('nav')
+    <div class="container nav-con">
+        <ul class="nav" id="nav">
+            <li><a href="/"> 首页 </a>
+                <div class="nav-line"></div>
+            </li>
+            <li class="test-report"><a href="/report"> 网速报告 </a>
+                <div class="nav-line"></div>
+            </li>
+            <li><a href="/add"> 添加测速点 </a>
+                <div class="nav-line"></div>
+            </li>
+            <li><a href="/plugin">测速插件 </a>
+                <div class="nav-line"></div>
+            </li>
+            <li><a href="/news"> 测速资讯 </a>
+                <div class="nav-line"></div>
+            </li>
+            <li><a class="mapp" href="/mobileapp"> 移动App </a>
+                <div class="nav-line"></div>
+            </li>
+            <div id="loginIofo">
+                <div id="loginCon">
+                    @if (!Auth::check()) <a href="{{url('/user/login')}}" class="loglink">登录</a><a
+                            href="{{ url('/user/register') }}">注册</a>
+                    @else <span id="ucDropdown"> <a href="/usercenter" class="loglink">{{ Auth::user()->name }} <span
+                                    class="uccaret"></span></a>
+                <ul id="userMenu">
+                    <span class="uccaret umc"></span>
+                    <li><a href="{{ url('/usercenter') }}">个人中心</a></li>
+                    <li><a href="{{ url('/testpoint') }}">我的测速点管理</a></li>
+                    <li><a href="{{ url('/speedlog') }}">测速点测速历史</a></li>
+                </ul>
+                </span> <a id="logOut" href="{{ url('/user/logout') }}">退出</a> @endif </div>
+            </div>
+        </ul>
+        <div id="buoy"></div>
     </div>
+@show
+
+@yield('content')
+
+<script src="{{ mix('js/manifest.js') }}"></script>
+<script src="{{ mix('js/vendor.js') }}"></script>
+<script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

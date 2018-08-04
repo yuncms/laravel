@@ -7,9 +7,11 @@
 
 namespace App\Models\Relations;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Trait BelongsToUserTrait
- * @property Illuminate\Database\Eloquent\Model $this
+ * @property Model $this
  *
  * @package App\Models\Relations
  */
